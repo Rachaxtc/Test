@@ -1,0 +1,51 @@
+n = int(input())
+w = {}
+l = {}
+name = []
+for i in range(n):
+    win,loses = input().split(",")
+    name.append(win)
+    name.append(loses)
+    if win in w:
+        w[win]+=1
+    
+        
+    else:
+        w[win] = 1
+        
+    if loses in l:
+        l[loses] += 1
+        
+    else:
+        l[loses] = 1
+        
+    
+
+for e in name:
+    if not e in w:
+        w[e] = 0
+        
+for e in name:
+    if not e in l:
+        l[e] = 0
+
+        
+        
+
+for e in w:
+    w[e] = [w[e],l[e]]
+    
+lt = []
+for e in w:
+    lt += [[e , w[e]]]
+    
+ans = sorted(lt, key = lambda x: (-x[1][0],x[1][1],x[0]))
+    
+for i in range(len(ans)):
+    print(f'{ans[i][0]} {ans[i][1][0]} {ans[i][1][1]}') 
+        
+
+        
+        
+
+    
